@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ice Cream</title>
+    <style>
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 30px 60px;
+        align-items: center;
+        background: linear-gradient(
+          to bottom,
+          #b7df2d 0%,
+          #e3f5ab 67%,
+          #f8ffe8 100%
+        );
+      }
+      h1 {
+        color: blueviolet;
+        font-weight: normal;
+      }
+      .box {
+        width: 500px;
+        border: 1px solid blueviolet;
+        padding: 10px;
+        margin: 0 auto;
+      }
+      img {
+        display: block;
+        margin: 0 auto;
+        max-width: 100%;
+        max-height: 350px;
+        border-radius: 10px;
+      }
+      .paragraph {
+        text-align: justify;
+        line-height: 1.5;
+
+        font-size: 14px;
+      }
+      .learn-more {
+        margin-top: 10px;
+        text-align: left;
+        display: block;
+        color: #7d51e8;
+        text-decoration: none;
+      }
+      .learn-more:hover {
+        text-decoration: underline;
+      }
+      .buyButton {
+        font-size: 15px;
+        display: block;
+        margin: 20px auto;
+        color: aliceblue;
+        background-color: #784fe0;
+        padding: 15px 20px 15px 20px;
+        border: 1px solid;
+        border-radius: 5px;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+        transition: all 200ms ease-in-out;
+      }
+      .buyButton:hover {
+        opacity: 0.9;
+        cursor: pointer;
+      }
+
+      .underline {
+        text-decoration: underline;
+        color: #784fe0;
+      }
+      .flavors {
+        justify-content: center;
+        text-align: center;
+      }
+      .flavors button {
+        display: inline-flexbox;
+
+        margin-right: 10px;
+        font-size: 15px;
+        padding: 10px 20px 10px 20px;
+        border: 1px solid aliceblue;
+        border-radius: 5px;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+      }
+      .flavors button:hover {
+        opacity: 0.6;
+        cursor: pointer;
+      }
+
+      #btn1 {
+        color: aliceblue;
+        background-color: #e4a9f2;
+      }
+      #btn2 {
+        color: aliceblue;
+        background-color: #6f58f4;
+      }
+      #btn3 {
+        background-color: #f0f9a9;
+        color: #6f58f4;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1><center>I Love Ice Cream</center></h1>
+
+      <div class="box">
+        <center><strong>Especially Homemade Ice Cream </strong></center>
+      </div>
+      <br />
+      <img
+        src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/078/184/original/greekyogurt.jpeg?1682086073"
+        alt="Vanilla"
+      />
+      <p class="paragraph">
+        Ice cream is a magical frozen concoction that turns frowns into smiles
+        and hot days into chilly adventures! It's a creamy, dreamy treat made
+        from the finest ingredients, mixed with love, and frozen to perfection.
+        With flavors that range from classic vanilla to funky unicorn rainbow,
+        ice cream is a delightful indulgence that brings joy to taste buds and
+        creates memories that melt hearts!
+
+        <a
+          href="https://en.wikipedia.org/wiki/Ice_cream"
+          target="_blank"
+          class="learn-more"
+          >Learn more on Wikipedia</a
+        >
+      </p>
+      <br />
+      <br />
+
+      <div class="flavors">
+        <button id="btn1">Strawberry</button>
+        <button id="btn2">Blueberry</button>
+        <button id="btn3">Vanilla</button>
+      </div>
+      <br />
+      <br />
+      <br />
+      <button class="buyButton">👉 Buy Greek Yogurt</button>
+      <p>
+        <center>
+          This page was built by <span class="underline">Satya Kandregula</span>
+        </center>
+      </p>
+    </div>
+    <script>
+      let yimg = document.querySelector("img");
+      function selectIcecream(flavor) {
+        if (flavor === "strawberry") {
+          yimg.src =
+            "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/078/187/original/strawberry-yogurt.jpeg?1682088480";
+          yimg.alt = "strawberry";
+        } else if (flavor === "blueberry") {
+          yimg.src =
+            "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/078/222/original/blueberry-yogurt.jpeg?1682099759";
+          yimg.alt = "blueberry";
+        } else {
+          yimg.src =
+            "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/078/184/original/greekyogurt.jpeg?1682086073";
+          yimg.alt = "vanilla";
+        }
+      }
+
+      let strawberryButton = document.querySelector("#btn1");
+      strawberryButton.addEventListener("click", function () {
+        selectIcecream("strawberry");
+      });
+
+      let blueberryButton = document.querySelector("#btn2");
+      blueberryButton.addEventListener("click", function () {
+        selectIcecream("blueberry");
+      });
+
+      let vanillaButton = document.querySelector("#btn3");
+      vanillaButton.addEventListener("click", function () {
+        selectIcecream("vanilla");
+      });
+
+      function buyIcecream() {
+        let name = prompt("What is you name?");
+        alert(name + " " + yimg.alt + " ice cream added to your cart");
+      }
+      let clickButton = document.querySelector(".buyButton");
+      clickButton.addEventListener("click", buyIcecream);
+    </script>
+  </body>
+</html>
